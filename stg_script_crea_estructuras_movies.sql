@@ -35,10 +35,10 @@ CREATE TABLE film (
     rental_rate numeric(4,2),
     length smallint,
     replacement_cost numeric(5,2),
-    rating mpaa_rating,
+    rating varchar,
     last_update timestamp without time zone DEFAULT now(),
-    special_features text[],
-    fulltext tsvector,
+    special_features varchar,
+    fulltext varchar,
     fecha_carga timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -88,6 +88,7 @@ CREATE TABLE customer (
     store_id integer,
     first_name character varying(45),
     last_name character varying(45),
+    full_name character varchar,
     email character varying(50),
     address_id integer,
     activebool boolean,
@@ -137,6 +138,7 @@ CREATE TABLE staff (
     staff_id integer,
     first_name character varying(45),
     last_name character varying(45),
+    full_name character varchar,
     address_id integer,
     email character varying(50),
     store_id integer,
