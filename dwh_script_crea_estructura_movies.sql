@@ -40,3 +40,39 @@ CREATE TABLE dim_customer(
     city VARCHAR,
     fecha_carga timestamp without time zone
 )
+
+-- DIM TIEMPO
+CREATE TABLE dim_tiempo (
+    tiempo_id INT PRIMARY KEY,
+    anio INT,
+    mes INT,
+    dia INT,
+    fecha_carga TIMESTAMP
+);
+
+------------------------
+--- TABLAS DE HECHOS ---
+------------------------
+CREATE TABLE fact_inventory (
+    inventory_id INTEGER PRIMARY KEY,
+	tiempo_id INTEGER,
+    film_id INTEGER,
+    store_id INTEGER,
+    fecha_carga TIMESTAMP,
+	FOREIGN KEY (tiempo_id) REFERENCES dim_tiempo(tiempo_id),
+    FOREIGN KEY (film_id) REFERENCES dim_film(film_id),
+    FOREIGN KEY (store_id) REFERENCES dim_store(store_id)
+);
+
+CREATE TABLE fact_rental (
+    rental_id INTEGER PRIMARY KEY,
+	tiempo_id INTEGER,
+    inventory_id INTEGER,
+    customer_id INTEGER,
+    staff_id INTEGER,
+    fecha_carga TIMESTAMP,
+    FOREIGN KEY (tiempo_id) REFERENCES dim_tiempo(tiempo_id),
+    FOREIGN KEY (customer_id) REFERENCES dim_customer(customer_id),
+    FOREIGN KEY (staff_id) REFERENCES dim_staff(staff_id),
+    FOREIGN KEY (inventory_id) REFERENCES fact_inventory(inventory_id)
+);
