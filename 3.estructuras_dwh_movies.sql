@@ -12,7 +12,6 @@ CREATE TABLE dim_customer (
     active boolean,
     geography_id integer,
     fecha_carga timestamp without time zone DEFAULT CURRENT_TIMESTAMP
-    -- FOREIGN KEY (store_id) REFERENCES Dim_staff(store_id)
     FOREIGN KEY (geography_id) REFERENCES Dim_geography(geography_id)
 );
 
@@ -67,15 +66,14 @@ CREATE TABLE dim_geography (
 );
 
 CREATE TABLE fact_inventory (
-    tiempo_id integer,
     store_id integer,
     film_id integer,
     cantidad integer,
-    fecha_renta_id date NOT NULL,
-    fecha_retorno_id date NOT NULL,
+    rental_date_id integer NOT NULL,
+    return_date_id integer,
     fecha_carga timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (fecha_renta_id) REFERENCES Dim_tiempo(tiempo_id),
-    FOREIGN KEY (fecha_retorno_id) REFERENCES Dim_tiempo(tiempo_id),
+    FOREIGN KEY (rental_date_id) REFERENCES Dim_tiempo(tiempo_id),
+    FOREIGN KEY (return_date_id) REFERENCES Dim_tiempo(tiempo_id),
     FOREIGN KEY (store_id) REFERENCES Dim_staff(store_id),
     FOREIGN KEY (film_id) REFERENCES Dim_film(film_id),
 );
@@ -84,16 +82,12 @@ CREATE TABLE fact_rental (
     customer_id integer,
     staff_id integer,
     film_id integer,
-    fecha_pago_id integer,
-    monto_pago numeric(5,2),
+    payment_date_id integer,
+    payment_amount numeric(5,2),
     fecha_carga timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    -- rental_id integer NOT NULL,
-    -- tiempo_id integer,
-    -- fecha_carga timestamp without time zone,
-
     FOREIGN KEY (customer_id) REFERENCES Dim_customer(customer_id),
     FOREIGN KEY (staff_id) REFERENCES Dim_staff(staff_id),
     FOREIGN KEY (film_id) REFERENCES Dim_film(film_id),
-    FOREIGN KEY (fecha_pago_id) REFERENCES Dim_tiempo(tiempo_id),
+    FOREIGN KEY (payment_date_id) REFERENCES Dim_tiempo(tiempo_id),
 );
 
