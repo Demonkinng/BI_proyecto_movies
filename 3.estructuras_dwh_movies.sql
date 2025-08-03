@@ -55,6 +55,41 @@ CREATE TABLE dim_tiempo (
     dia_semana integer,
     es_fin_de_semana boolean
 );
+-- Generar fechas desde el 2000-01-01 hasta el 2030-12-31
+DO $$
+DECLARE
+    fecha_actual DATE := DATE '2000-01-01';
+    fecha_fin DATE := DATE '2030-12-31';
+BEGIN
+    WHILE fecha_actual <= fecha_fin LOOP
+        INSERT INTO dim_tiempo (
+            tiempo_id,
+            fecha,
+            anio,
+            trimestre,
+            mes,
+            nombre_mes,
+            dia,
+            nombre_dia,
+            dia_semana,
+            es_fin_de_semana
+        )
+        VALUES (
+            TO_CHAR(fecha_actual, 'YYYYMMDD')::INTEGER,
+            fecha_actual,
+            EXTRACT(YEAR FROM fecha_actual)::INTEGER,
+            EXTRACT(QUARTER FROM fecha_actual)::INTEGER,
+            EXTRACT(MONTH FROM fecha_actual)::INTEGER,
+            TO_CHAR(fecha_actual, 'TMMonth'),
+            EXTRACT(DAY FROM fecha_actual)::INTEGER,
+            TO_CHAR(fecha_actual, 'TMDay'),
+            EXTRACT(DOW FROM fecha_actual)::INTEGER,
+            CASE WHEN EXTRACT(DOW FROM fecha_actual) IN (0,6) THEN TRUE ELSE FALSE END
+        );
+
+        fecha_actual := fecha_actual + INTERVAL '1 day';
+    END LOOP;
+END $$;
 
 CREATE TABLE dim_geography (
     geography_id integer PRIMARY KEY,
@@ -68,14 +103,13 @@ CREATE TABLE dim_geography (
 CREATE TABLE fact_inventory (
     store_id integer,
     film_id integer,
-    cantidad integer,
     rental_date_id integer NOT NULL,
     return_date_id integer,
     fecha_carga timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (rental_date_id) REFERENCES Dim_tiempo(tiempo_id),
     FOREIGN KEY (return_date_id) REFERENCES Dim_tiempo(tiempo_id),
-    FOREIGN KEY (store_id) REFERENCES Dim_staff(store_id),
-    FOREIGN KEY (film_id) REFERENCES Dim_film(film_id),
+    FOREIGN KEY (store_id) REFERENCES Dim_store(store_id),
+    FOREIGN KEY (film_id) REFERENCES Dim_film(film_id)
 );
 
 CREATE TABLE fact_rental (
@@ -88,6 +122,6 @@ CREATE TABLE fact_rental (
     FOREIGN KEY (customer_id) REFERENCES Dim_customer(customer_id),
     FOREIGN KEY (staff_id) REFERENCES Dim_staff(staff_id),
     FOREIGN KEY (film_id) REFERENCES Dim_film(film_id),
-    FOREIGN KEY (payment_date_id) REFERENCES Dim_tiempo(tiempo_id),
+    FOREIGN KEY (payment_date_id) REFERENCES Dim_tiempo(tiempo_id)
 );
 
