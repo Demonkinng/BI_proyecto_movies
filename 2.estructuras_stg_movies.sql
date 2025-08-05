@@ -16,14 +16,6 @@ CREATE TABLE category (
     fecha_carga timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TYPE mpaa_rating AS ENUM (
-    'G',
-    'PG',
-    'PG-13',
-    'R',
-    'NC-17'
-);
-
 CREATE TABLE film (
     film_id integer,
     title character varying(255),
