@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>t_dwh_fact_inventory</name>
+    <name>t_dwh_fact_inventory2</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,9 +427,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/07/24 22:13:03.849</created_date>
+    <created_date>2025/08/02 15:17:20.680</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/07/24 22:13:03.849</modified_date>
+    <modified_date>2025/08/02 15:17:20.680</modified_date>
     <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -443,7 +443,7 @@
     <database>dwh_movies</database>
     <port>5432</port>
     <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce71da9fa6d4</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb18aa7dd79c8dfe</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -458,10 +458,6 @@
       </attribute>
       <attribute>
         <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -498,7 +494,7 @@
     <database>stg_movies</database>
     <port>5432</port>
     <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce71da9fa6d4</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb18aa7dd79c8dfe</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -543,18 +539,38 @@
   </connection>
   <order>
     <hop>
-      <from>fact_inventory</from>
+      <from>stg_inventory</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>stg_rental</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
       <to>Merge rows (diff)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge rows (diff)</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get system info</from>
-      <to>Insert / update</to>
+      <from>fact_inventory</from>
+      <to>Merge rows (diff)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -568,8 +584,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>stg_inventory</from>
-      <to>Merge rows (diff)</to>
+      <from>Get system info</from>
+      <to>Insert / update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge rows (diff)</from>
+      <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -593,8 +614,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>464</yloc>
+      <xloc>864</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -620,7 +641,7 @@
         <value>
           <name>constant</name>
           <type>String</type>
-          <text>flagfield</text>
+          <text>identical</text>
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
@@ -637,8 +658,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>320</yloc>
+      <xloc>752</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -668,8 +689,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>320</yloc>
+      <xloc>912</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -691,22 +712,29 @@
       <schema>public</schema>
       <table>fact_inventory</table>
       <key>
+        <name>store_id</name>
+        <field>store_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
         <name>film_id</name>
         <field>film_id</field>
         <condition>=</condition>
         <name2/>
       </key>
       <key>
-        <name>store_id</name>
-        <field>store_id</field>
+        <name>rental_date_id</name>
+        <field>rental_date_id</field>
         <condition>=</condition>
         <name2/>
       </key>
-      <value>
-        <name>tiempo_id</name>
-        <rename>tiempo_id</rename>
-        <update>Y</update>
-      </value>
+      <key>
+        <name>return_date_id</name>
+        <field>return_date_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
       <value>
         <name>store_id</name>
         <rename>store_id</rename>
@@ -718,13 +746,18 @@
         <update>Y</update>
       </value>
       <value>
-        <name>cantidad</name>
-        <rename>cantidad</rename>
+        <name>rental_date_id</name>
+        <rename>rental_date_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>return_date_id</name>
+        <rename>return_date_id</rename>
         <update>Y</update>
       </value>
       <value>
         <name>fecha_carga</name>
-        <rename>fecha_carga</rename>
+        <rename>fecha_carga_1</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -737,8 +770,42 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>320</yloc>
+      <xloc>1072</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Sort rows</step1>
+    <step2>Sort rows 2</step2>
+    <keys_1>
+      <key>inventory_id</key>
+    </keys_1>
+    <keys_2>
+      <key>inventory_id</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -756,17 +823,19 @@
     <keys>
       <key>store_id</key>
       <key>film_id</key>
+      <key>rental_date_id</key>
+      <key>return_date_id</key>
     </keys>
     <values>
-      <value>tiempo_id</value>
       <value>store_id</value>
       <value>film_id</value>
-      <value>cantidad</value>
+      <value>rental_date_id</value>
+      <value>return_date_id</value>
       <value>fecha_carga</value>
     </values>
     <flag_field>flagfield</flag_field>
     <reference>fact_inventory</reference>
-    <compare>stg_inventory</compare>
+    <compare>Select values</compare>
     <compare>
     </compare>
     <attributes/>
@@ -778,8 +847,126 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>320</yloc>
+      <xloc>608</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>inventory_id</name>
+      </remove>
+      <remove>
+        <name>inventory_id_1</name>
+      </remove>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>inventory_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>inventory_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -796,10 +983,10 @@
     </partitioning>
     <connection>dwh_movies</connection>
     <sql>SELECT
-  tiempo_id
-, store_id
+  store_id
 , film_id
-, cantidad
+, rental_date_id
+, return_date_id
 , fecha_carga
 FROM "public".fact_inventory
 </sql>
@@ -810,29 +997,6 @@ FROM "public".fact_inventory
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>tiempo_id</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>fact_inventory</origin>
-        <comments>tiempo_id</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/Guayaquil</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
@@ -852,7 +1016,7 @@ FROM "public".fact_inventory
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_EC</date_format_locale>
         <date_format_timezone>America/Guayaquil</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -875,18 +1039,18 @@ FROM "public".fact_inventory
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_EC</date_format_locale>
         <date_format_timezone>America/Guayaquil</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>cantidad</name>
+        <name>rental_date_id</name>
         <length>9</length>
         <precision>0</precision>
         <origin>fact_inventory</origin>
-        <comments>cantidad</comments>
+        <comments>rental_date_id</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -898,7 +1062,30 @@ FROM "public".fact_inventory
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_EC</date_format_locale>
+        <date_format_timezone>America/Guayaquil</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>return_date_id</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>fact_inventory</origin>
+        <comments>return_date_id</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_EC</date_format_locale>
         <date_format_timezone>America/Guayaquil</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -921,7 +1108,7 @@ FROM "public".fact_inventory
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_EC</date_format_locale>
         <date_format_timezone>America/Guayaquil</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -935,7 +1122,7 @@ FROM "public".fact_inventory
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
+      <xloc>528</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
@@ -953,20 +1140,11 @@ FROM "public".fact_inventory
     </partitioning>
     <connection>stg_movies</connection>
     <sql>SELECT
-  tiempo_id
-, store_id
+  inventory_id
 , film_id
-, COUNT(*) AS cantidad
+, store_id
 , fecha_carga
 FROM "public".inventory
-GROUP BY
-	tiempo_id,
-    store_id, 
-    film_id,
-	fecha_carga
-ORDER BY 
-    store_id, 
-    film_id;
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -978,11 +1156,11 @@ ORDER BY
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>tiempo_id</name>
+        <name>inventory_id</name>
         <length>9</length>
         <precision>0</precision>
         <origin>stg_inventory</origin>
-        <comments>tiempo_id</comments>
+        <comments>inventory_id</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -994,7 +1172,7 @@ ORDER BY
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_EC</date_format_locale>
         <date_format_timezone>America/Guayaquil</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1017,7 +1195,7 @@ ORDER BY
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_EC</date_format_locale>
         <date_format_timezone>America/Guayaquil</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1040,7 +1218,7 @@ ORDER BY
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_EC</date_format_locale>
         <date_format_timezone>America/Guayaquil</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1063,30 +1241,7 @@ ORDER BY
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/Guayaquil</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>cantidad</name>
-        <length>15</length>
-        <precision>0</precision>
-        <origin>stg_inventory</origin>
-        <comments>cantidad</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_EC</date_format_locale>
         <date_format_timezone>America/Guayaquil</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1100,8 +1255,116 @@ ORDER BY
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>240</yloc>
+      <xloc>80</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>stg_rental</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>stg_movies</connection>
+    <sql>SELECT
+  inventory_id
+, TO_CHAR(rental_date, 'YYYYMMDD')::INTEGER AS rental_date_id
+, TO_CHAR(return_date, 'YYYYMMDD')::INTEGER AS return_date_id
+FROM "public".rental</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>inventory_id</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>stg_rental</origin>
+        <comments>inventory_id</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_EC</date_format_locale>
+        <date_format_timezone>America/Guayaquil</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>rental_date_id</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>stg_rental</origin>
+        <comments>rental_date_id</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_EC</date_format_locale>
+        <date_format_timezone>America/Guayaquil</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>return_date_id</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>stg_rental</origin>
+        <comments>return_date_id</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_EC</date_format_locale>
+        <date_format_timezone>America/Guayaquil</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
