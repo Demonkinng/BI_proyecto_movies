@@ -1,0 +1,1041 @@
+{
+  "id": "0",
+  "name": "xdxd-db",
+  "createdAt": "2025-08-05T02:21:16.122Z",
+  "updatedAt": "2025-08-05T02:31:47.734Z",
+  "databaseType": "postgresql",
+  "tables": [
+    {
+      "id": "1",
+      "name": "fact_inventory",
+      "schema": "public",
+      "x": 802.8003055247309,
+      "y": 99.99999999999996,
+      "fields": [
+        {
+          "id": "2",
+          "name": "store_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "3",
+          "name": "film_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "4",
+          "name": "rental_date_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "5",
+          "name": "return_date_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "6",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        }
+      ],
+      "indexes": [],
+      "color": "#8eb7ff",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754360476078,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "7",
+      "name": "dim_geography",
+      "schema": "public",
+      "x": 2151.6634392569326,
+      "y": 185.13140238359446,
+      "fields": [
+        {
+          "id": "8",
+          "name": "geography_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "9",
+          "name": "country",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "10",
+          "name": "city",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "11",
+          "name": "postal_code",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "12",
+          "name": "address",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "13",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        }
+      ],
+      "indexes": [
+        {
+          "id": "14",
+          "name": "dim_geography_pkey",
+          "unique": true,
+          "fieldIds": [
+            "8"
+          ],
+          "createdAt": 1754360476078
+        }
+      ],
+      "color": "#b067e9",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754360476078,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "15",
+      "name": "dim_film",
+      "schema": "public",
+      "x": 1113.4125257129083,
+      "y": -269.4726123530712,
+      "fields": [
+        {
+          "id": "16",
+          "name": "film_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "17",
+          "name": "title",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "255",
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "18",
+          "name": "release_year",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "19",
+          "name": "rental_rate",
+          "type": {
+            "id": "numeric",
+            "name": "numeric"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "precision": 4,
+          "scale": 2,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "20",
+          "name": "length",
+          "type": {
+            "id": "smallint",
+            "name": "smallint"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "21",
+          "name": "rating",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "22",
+          "name": "category",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "23",
+          "name": "language",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "24",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        }
+      ],
+      "indexes": [
+        {
+          "id": "25",
+          "name": "dim_film_pkey",
+          "unique": true,
+          "fieldIds": [
+            "16"
+          ],
+          "createdAt": 1754360476078
+        }
+      ],
+      "color": "#c05dcf",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754360476078,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "26",
+      "name": "dim_tiempo",
+      "schema": "public",
+      "x": 1134.57461960917,
+      "y": 324.9148832319888,
+      "fields": [
+        {
+          "id": "27",
+          "name": "tiempo_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "28",
+          "name": "fecha",
+          "type": {
+            "id": "date",
+            "name": "date"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "29",
+          "name": "anio",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "30",
+          "name": "trimestre",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "31",
+          "name": "mes",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "32",
+          "name": "nombre_mes",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "20",
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "33",
+          "name": "dia",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "34",
+          "name": "nombre_dia",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "20",
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "35",
+          "name": "dia_semana",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "36",
+          "name": "es_fin_de_semana",
+          "type": {
+            "id": "boolean",
+            "name": "boolean"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        }
+      ],
+      "indexes": [
+        {
+          "id": "37",
+          "name": "dim_tiempo_pkey",
+          "unique": true,
+          "fieldIds": [
+            "27"
+          ],
+          "createdAt": 1754360476078
+        }
+      ],
+      "color": "#8eb7ff",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754360476078,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "38",
+      "name": "dim_store",
+      "schema": "public",
+      "x": 1821.3046236911932,
+      "y": -89.18089418576554,
+      "fields": [
+        {
+          "id": "39",
+          "name": "store_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "40",
+          "name": "manager",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "41",
+          "name": "geography_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "42",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        }
+      ],
+      "indexes": [
+        {
+          "id": "43",
+          "name": "dim_store_pkey",
+          "unique": true,
+          "fieldIds": [
+            "39"
+          ],
+          "createdAt": 1754360476078
+        }
+      ],
+      "color": "#ff6363",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754360476078,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "44",
+      "name": "dim_staff",
+      "schema": "public",
+      "x": 1823.9108982677888,
+      "y": 125.4496445645365,
+      "fields": [
+        {
+          "id": "45",
+          "name": "staff_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "createdAt": 1754360476079
+        },
+        {
+          "id": "46",
+          "name": "full_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476079
+        },
+        {
+          "id": "47",
+          "name": "store_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476079
+        },
+        {
+          "id": "48",
+          "name": "active",
+          "type": {
+            "id": "boolean",
+            "name": "boolean"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476079
+        },
+        {
+          "id": "49",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476079
+        }
+      ],
+      "indexes": [
+        {
+          "id": "50",
+          "name": "dim_staff_pkey",
+          "unique": true,
+          "fieldIds": [
+            "45"
+          ],
+          "createdAt": 1754360476079
+        }
+      ],
+      "color": "#42e0c0",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "51",
+      "name": "fact_rental",
+      "schema": "public",
+      "x": 1464.4671993148338,
+      "y": 95.27047764535592,
+      "fields": [
+        {
+          "id": "52",
+          "name": "customer_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "53",
+          "name": "staff_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "54",
+          "name": "film_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "55",
+          "name": "payment_date_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "56",
+          "name": "payment_amount",
+          "type": {
+            "id": "numeric",
+            "name": "numeric"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "precision": 5,
+          "scale": 2,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "57",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476079
+        }
+      ],
+      "indexes": [],
+      "color": "#42e0c0",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "58",
+      "name": "dim_actor",
+      "schema": "public",
+      "x": 794.4182473838013,
+      "y": -267.1072063157486,
+      "fields": [
+        {
+          "id": "59",
+          "name": "actor_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "60",
+          "name": "film_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "61",
+          "name": "full_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "62",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        }
+      ],
+      "indexes": [
+        {
+          "id": "63",
+          "name": "dim_actor_pkey",
+          "unique": true,
+          "fieldIds": [
+            "59"
+          ],
+          "createdAt": 1754360476078
+        }
+      ],
+      "color": "#9ef07a",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754360476078,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "64",
+      "name": "dim_customer",
+      "schema": "public",
+      "x": 1826.9834087044599,
+      "y": 364.85325186007174,
+      "fields": [
+        {
+          "id": "65",
+          "name": "customer_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "66",
+          "name": "full_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "67",
+          "name": "active",
+          "type": {
+            "id": "boolean",
+            "name": "boolean"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "68",
+          "name": "geography_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        },
+        {
+          "id": "69",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754360476078
+        }
+      ],
+      "indexes": [
+        {
+          "id": "70",
+          "name": "dim_customer_pkey",
+          "unique": true,
+          "fieldIds": [
+            "65"
+          ],
+          "createdAt": 1754360476078
+        }
+      ],
+      "color": "#8eb7ff",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754360476078,
+      "diagramId": "q5c6ysqpvh0j"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "71",
+      "name": "dim_actor_film_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "58",
+      "targetTableId": "15",
+      "sourceFieldId": "60",
+      "targetFieldId": "16",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "72",
+      "name": "dim_customer_geography_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "64",
+      "targetTableId": "7",
+      "sourceFieldId": "68",
+      "targetFieldId": "8",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "73",
+      "name": "dim_store_geography_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "38",
+      "targetTableId": "7",
+      "sourceFieldId": "41",
+      "targetFieldId": "8",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "74",
+      "name": "fact_inventory_film_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "1",
+      "targetTableId": "15",
+      "sourceFieldId": "3",
+      "targetFieldId": "16",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "75",
+      "name": "fact_inventory_rental_date_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "1",
+      "targetTableId": "26",
+      "sourceFieldId": "4",
+      "targetFieldId": "27",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "76",
+      "name": "fact_inventory_return_date_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "1",
+      "targetTableId": "26",
+      "sourceFieldId": "5",
+      "targetFieldId": "27",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "77",
+      "name": "fact_inventory_store_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "1",
+      "targetTableId": "38",
+      "sourceFieldId": "2",
+      "targetFieldId": "39",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "78",
+      "name": "fact_rental_customer_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "51",
+      "targetTableId": "64",
+      "sourceFieldId": "52",
+      "targetFieldId": "65",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "79",
+      "name": "fact_rental_film_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "51",
+      "targetTableId": "15",
+      "sourceFieldId": "54",
+      "targetFieldId": "16",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "80",
+      "name": "fact_rental_payment_date_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "51",
+      "targetTableId": "26",
+      "sourceFieldId": "55",
+      "targetFieldId": "27",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "81",
+      "name": "fact_rental_staff_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "51",
+      "targetTableId": "44",
+      "sourceFieldId": "53",
+      "targetFieldId": "45",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754360476079,
+      "diagramId": "q5c6ysqpvh0j"
+    },
+    {
+      "id": "82",
+      "name": "dim_staff_store_id_fk",
+      "sourceSchema": "public",
+      "sourceTableId": "44",
+      "targetSchema": "public",
+      "targetTableId": "38",
+      "sourceFieldId": "47",
+      "targetFieldId": "39",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1754361027052
+    }
+  ],
+  "dependencies": [],
+  "areas": [],
+  "customTypes": []
+}

@@ -1,0 +1,1555 @@
+{
+  "id": "0",
+  "name": "stg_movies-db",
+  "createdAt": "2025-08-05T01:34:24.803Z",
+  "updatedAt": "2025-08-05T02:09:20.947Z",
+  "databaseType": "postgresql",
+  "tables": [
+    {
+      "id": "1",
+      "name": "city",
+      "schema": "public",
+      "x": 420,
+      "y": 180,
+      "fields": [
+        {
+          "id": "2",
+          "name": "city_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "3",
+          "name": "city",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "50",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "4",
+          "name": "country_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "5",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "6",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#ffe374",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "7",
+      "name": "staff",
+      "schema": "public",
+      "x": 420,
+      "y": 680,
+      "fields": [
+        {
+          "id": "8",
+          "name": "staff_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "9",
+          "name": "first_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "45",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "10",
+          "name": "last_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "45",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "11",
+          "name": "address_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "12",
+          "name": "email",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "50",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "13",
+          "name": "store_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "14",
+          "name": "active",
+          "type": {
+            "id": "boolean",
+            "name": "boolean"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "15",
+          "name": "username",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "16",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "16",
+          "name": "password",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "40",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "17",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "18",
+          "name": "picture",
+          "type": {
+            "id": "bytea",
+            "name": "bytea"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "19",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "20",
+          "name": "full_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#c05dcf",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3",
+      "expanded": true
+    },
+    {
+      "id": "21",
+      "name": "rental",
+      "schema": "public",
+      "x": 160,
+      "y": 680,
+      "fields": [
+        {
+          "id": "22",
+          "name": "rental_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "23",
+          "name": "rental_date",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "24",
+          "name": "inventory_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "25",
+          "name": "customer_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "26",
+          "name": "return_date",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "27",
+          "name": "staff_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "28",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "29",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#b067e9",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "30",
+      "name": "film_category",
+      "schema": "public",
+      "x": 1200,
+      "y": 480,
+      "fields": [
+        {
+          "id": "31",
+          "name": "film_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "32",
+          "name": "category_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "33",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "34",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#42e0c0",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "35",
+      "name": "customer",
+      "schema": "public",
+      "x": 1200,
+      "y": 680,
+      "fields": [
+        {
+          "id": "36",
+          "name": "customer_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "37",
+          "name": "store_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "38",
+          "name": "first_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "45",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "39",
+          "name": "last_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "45",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "40",
+          "name": "email",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "50",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "41",
+          "name": "address_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "42",
+          "name": "activebool",
+          "type": {
+            "id": "boolean",
+            "name": "boolean"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "43",
+          "name": "create_date",
+          "type": {
+            "id": "date",
+            "name": "date"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "44",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "45",
+          "name": "active",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "46",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "47",
+          "name": "full_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#8eb7ff",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3",
+      "expanded": true
+    },
+    {
+      "id": "48",
+      "name": "inventory",
+      "schema": "public",
+      "x": 940,
+      "y": 180,
+      "fields": [
+        {
+          "id": "49",
+          "name": "inventory_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "50",
+          "name": "film_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "51",
+          "name": "store_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "52",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "53",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "54",
+          "name": "tiempo_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#ff6363",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "55",
+      "name": "country",
+      "schema": "public",
+      "x": 160,
+      "y": 480,
+      "fields": [
+        {
+          "id": "56",
+          "name": "country_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "57",
+          "name": "country",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "50",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "58",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "59",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#9ef07a",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "60",
+      "name": "language",
+      "schema": "public",
+      "x": 680,
+      "y": 480,
+      "fields": [
+        {
+          "id": "61",
+          "name": "language_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "62",
+          "name": "name",
+          "type": {
+            "id": "character",
+            "name": "character"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "20",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "63",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "64",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#ffe374",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "65",
+      "name": "actor",
+      "schema": "public",
+      "x": 160,
+      "y": 180,
+      "fields": [
+        {
+          "id": "66",
+          "name": "actor_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "67",
+          "name": "full_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "91",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "68",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "69",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "70",
+          "name": "first_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "45",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "71",
+          "name": "last_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "45",
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#7175fa",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "72",
+      "name": "category",
+      "schema": "public",
+      "x": 940,
+      "y": 480,
+      "fields": [
+        {
+          "id": "73",
+          "name": "category_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "74",
+          "name": "name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "25",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "75",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "76",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#ff6363",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "77",
+      "name": "address",
+      "schema": "public",
+      "x": 940,
+      "y": 680,
+      "fields": [
+        {
+          "id": "78",
+          "name": "address_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "79",
+          "name": "address",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "50",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "80",
+          "name": "address2",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "50",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "81",
+          "name": "district",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "20",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "82",
+          "name": "city_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "83",
+          "name": "postal_code",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "10",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "84",
+          "name": "phone",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "20",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "85",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "86",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#b067e9",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "87",
+      "name": "film_actor",
+      "schema": "public",
+      "x": 420,
+      "y": 480,
+      "fields": [
+        {
+          "id": "88",
+          "name": "actor_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "89",
+          "name": "film_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "90",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "91",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#b067e9",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "92",
+      "name": "payment",
+      "schema": "public",
+      "x": 680,
+      "y": 180,
+      "fields": [
+        {
+          "id": "93",
+          "name": "payment_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "94",
+          "name": "customer_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "95",
+          "name": "staff_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "96",
+          "name": "rental_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "97",
+          "name": "amount",
+          "type": {
+            "id": "numeric",
+            "name": "numeric"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "precision": 5,
+          "scale": 2,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "98",
+          "name": "payment_date",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "99",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#8a61f5",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "100",
+      "name": "store",
+      "schema": "public",
+      "x": 1200,
+      "y": 180,
+      "fields": [
+        {
+          "id": "101",
+          "name": "store_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "102",
+          "name": "manager_staff_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "103",
+          "name": "address_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "104",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "105",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#c05dcf",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3"
+    },
+    {
+      "id": "106",
+      "name": "film",
+      "schema": "public",
+      "x": 680,
+      "y": 680,
+      "fields": [
+        {
+          "id": "107",
+          "name": "film_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "108",
+          "name": "title",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "characterMaximumLength": "255",
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "109",
+          "name": "description",
+          "type": {
+            "id": "text",
+            "name": "text"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "110",
+          "name": "release_year",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "111",
+          "name": "language_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "112",
+          "name": "original_language_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "113",
+          "name": "rental_duration",
+          "type": {
+            "id": "smallint",
+            "name": "smallint"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "114",
+          "name": "rental_rate",
+          "type": {
+            "id": "numeric",
+            "name": "numeric"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "precision": 4,
+          "scale": 2,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "115",
+          "name": "length",
+          "type": {
+            "id": "smallint",
+            "name": "smallint"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "116",
+          "name": "replacement_cost",
+          "type": {
+            "id": "numeric",
+            "name": "numeric"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "precision": 5,
+          "scale": 2,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "117",
+          "name": "rating",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "118",
+          "name": "last_update",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "119",
+          "name": "special_features",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "120",
+          "name": "fulltext",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        },
+        {
+          "id": "121",
+          "name": "fecha_carga",
+          "type": {
+            "id": "timestamp_without_time_zone",
+            "name": "timestamp without time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1754357664736
+        }
+      ],
+      "indexes": [],
+      "color": "#8eb7ff",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1754357664736,
+      "diagramId": "q5c6ysqpaxm3",
+      "expanded": true
+    }
+  ],
+  "relationships": [],
+  "dependencies": [],
+  "areas": [],
+  "customTypes": [
+    {
+      "id": "if9xf3iaxlx3sokprdks9k3g9",
+      "schema": "public",
+      "name": "mpaa_rating",
+      "kind": "enum",
+      "values": [
+        "G",
+        "PG",
+        "PG-13",
+        "R",
+        "NC-17"
+      ],
+      "diagramId": "q5c6ysqpaxm3"
+    }
+  ]
+}
